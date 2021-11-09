@@ -1,0 +1,54 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Kvadraticka
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void BtnCompute_Click(object sender, EventArgs e)
+        {
+            double numA = double.Parse(TxtA.Text);
+            double numB = double.Parse(TxtB.Text);
+            double numC = double.Parse(TxtC.Text); 
+	    if(numA == 0)
+		{
+			MessageBox.Show("Rovnice není kvadratická")
+			return;
+		}
+
+
+            double numD = numB * numB - 4 * numA * numC;
+	    if(D < 0)
+		{
+			MessageBox.Show("Nemá řešení")
+			return;
+		}else{
+            if(D == 0)
+		{
+			double numX1 = -numB / (2 * numA);
+			double numX2 = double numX1;
+			MessageBox.Show(numX1, numX2);
+		}
+            else
+		{
+			double TMPR = Math.Sqrt(numD);
+			double numX1 = (-numB + TMPR) / (2 * numA);
+			double numX2 = (-numB - TMPR) / (2 * numA);
+			MessageBox.Show(numX1, numX2);
+		}
+            }
+        }
+    }
+}
